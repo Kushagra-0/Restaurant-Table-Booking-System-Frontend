@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation"; // Importing hooks
+import { Suspense } from "react";
 
 export default function Confirm() {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function Confirm() {
   };
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-black text-center mb-6">Your Booking Confirmed</h2>
@@ -37,5 +39,6 @@ export default function Confirm() {
         </div>
       </div>
     </div>
+    </Suspense>
   );
 }
